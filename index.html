@@ -1,76 +1,396 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pandu Bhaskara | Software Engineer portfolio showcasing product-focused engineering, modern web projects, and leadership."
+    />
+    <title>Pandu Bhaskara | Software Engineer</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 
-    <title>Narrow Jumbotron Template for Bootstrap</title>
+      :root {
+        color-scheme: light;
+        font-family:
+          "Poppins",
+          Inter,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(59, 130, 246, 0.18),
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(168, 85, 247, 0.16),
+            transparent 28%
+          ),
+          #f4f7fb;
+        color: #0f172a;
+      }
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../css/editor.css" rel="stylesheet">
+      * {
+        box-sizing: border-box;
+      }
 
-    <!-- Custom styles for this template -->
-    <link href="narrow-jumbotron.css" rel="stylesheet">
+      body {
+        margin: 0;
+        min-height: 100vh;
+        line-height: 1.6;
+        background-attachment: fixed;
+      }
+
+      .page {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 56px 24px 40px;
+      }
+
+      header,
+      section,
+      footer {
+        margin-bottom: 40px;
+      }
+
+      .section-title {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 18px;
+        font-size: 0.92rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #6d28d9;
+      }
+
+      .section-title::before {
+        content: "";
+        width: 24px;
+        height: 2px;
+        background: linear-gradient(90deg, #7c3aed 0%, #2563eb 100%);
+      }
+
+      .page-nav {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 18px;
+      }
+
+      .page-link {
+        color: #4338ca;
+        background: rgba(99, 102, 241, 0.12);
+        border-radius: 999px;
+        padding: 10px 16px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .page-link:hover {
+        background: rgba(99, 102, 241, 0.18);
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 28px;
+        padding: 14px 24px;
+        color: #ffffff;
+        background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        box-shadow: 0 18px 40px rgba(59, 130, 246, 0.18);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-1px);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.86);
+        border-radius: 32px;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        padding: 48px 40px;
+        box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.24),
+          transparent 60%
+        );
+        top: -40px;
+        right: -40px;
+        pointer-events: none;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(168, 85, 247, 0.2),
+          transparent 55%
+        );
+        bottom: -40px;
+        left: -20px;
+        pointer-events: none;
+      }
+
+      .site-title {
+        margin: 0;
+        font-size: clamp(2.8rem, 4.5vw, 4.6rem);
+        letter-spacing: -0.06em;
+      }
+
+      .subtitle {
+        margin: 22px 0 0;
+        max-width: 760px;
+        color: #334155;
+        font-size: 1.1rem;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .meta-item {
+        padding: 14px 22px;
+        border-radius: 999px;
+        background: #eef2ff;
+        color: #312e81;
+        font-size: 0.97rem;
+        border: 1px solid rgba(99, 102, 241, 0.18);
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 28px;
+      }
+
+      .card {
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 26px;
+        padding: 32px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+      }
+
+      .card strong {
+        color: #0f172a;
+      }
+
+      .card h3 {
+        margin-top: 0;
+        margin-bottom: 18px;
+        font-size: 1.2rem;
+        color: #111827;
+      }
+
+      .card p,
+      .card li {
+        margin: 0 0 18px;
+        color: #475569;
+      }
+
+      .card li:last-child,
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .card ul {
+        padding-left: 18px;
+        margin: 0;
+        list-style: none;
+      }
+
+      .card ul li {
+        position: relative;
+        padding-left: 18px;
+      }
+
+      .card ul li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.55em;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #8b5cf6;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 14px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .contact-list li {
+        color: #334155;
+      }
+
+      .contact-list li a {
+        color: #4338ca;
+        text-decoration: none;
+      }
+
+      .contact-list li a:hover {
+        text-decoration: underline;
+      }
+
+      footer p {
+        margin: 0;
+        color: #64748b;
+        font-size: 0.96rem;
+      }
+
+      @media (max-width: 860px) {
+        .split {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          padding: 32px 18px 30px;
+        }
+
+        .hero {
+          padding: 32px 24px;
+        }
+
+        .meta {
+          flex-direction: column;
+        }
+      }
+    </style>
   </head>
-
   <body>
+    <main class="page">
+      <header>
+        <div class="hero">
+          <p class="section-title">Software Engineer</p>
+          <h1 class="site-title">Pandu Bhaskara</h1>
+          <p class="subtitle">
+            I build reliable, scalable web products with clear architecture,
+            polished user experiences, and a focus on measurable business
+            outcomes.
+          </p>
+          <div class="meta">
+            <span class="meta-item">Full-stack development</span>
+            <span class="meta-item">Product-focused delivery</span>
+            <span class="meta-item">Team leadership</span>
+          </div>
+          <a class="cta-button" href="projects.html">See projects</a>
+        </div>
+      </header>
 
-    <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills float-right">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
+      <section class="split">
+        <div class="card">
+          <h3>Selected work</h3>
+          <p>
+            <strong>Enterprise analytics platform</strong><br />Modernized data
+            workflows, improved query performance, and delivered a polished
+            dashboard used by cross-functional teams.
+          </p>
+          <p>
+            <strong>Customer engagement portal</strong><br />Designed responsive
+            features, reduced onboarding friction, and increased active user
+            retention with intuitive automation.
+          </p>
+          <p>
+            <strong>API & infrastructure</strong><br />Built reliable backend
+            services with clean REST/GraphQL contracts and automated deployment
+            pipelines.
+          </p>
+          <p>
+            <strong
+              ><a
+                href="https://amerchant.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                >Amerchant</a
+              ></strong
+            ><br />A polished merchant-facing interface featuring modern design,
+            intuitive checkout flows, and responsive performance across devices.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Core strengths</h3>
+          <ul>
+            <li>JavaScript / TypeScript, Node.js, React</li>
+            <li>Microservices, serverless, cloud architecture</li>
+            <li>Product design collaboration & stakeholder alignment</li>
+            <li>Performance optimization and CI/CD automation</li>
           </ul>
-        </nav>
-        <h3 class="text-muted"><br></h3>
-      </div>
-
-      <div class="jumbotron">
-        <h1 class="display-3">Pandu Bhaskara<br></h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
+      </section>
 
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+      <section class="card">
+        <h3>Experience</h3>
+        <p>
+          <strong>Software Engineer</strong> — delivered business-critical
+          solutions across B2B and customer-facing platforms. I partner with
+          product, design, and operations to ensure each release is dependable,
+          maintainable, and user-friendly.
+        </p>
+      </section>
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+      <section class="card">
+        <h3>Contact</h3>
+        <ul class="contact-list">
+          <li>
+            Email:
+            <a href="mailto:hello@pandubhaskara.com">hello@pandubhaskara.com</a>
+          </li>
+          <li>
+            LinkedIn:
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"
+              >linkedin.com/in/pandubhaskara</a
+            >
+          </li>
+          <li>
+            GitHub:
+            <a
+              href="https://github.com/pandubhaskara"
+              target="_blank"
+              rel="noreferrer"
+              >github.com/pandubhaskara</a
+            >
+          </li>
+        </ul>
+      </section>
 
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div>
-
-      <footer class="footer">
-        <p>© Company 2017</p>
+      <footer>
+        <p>Designed for clarity, built for impact.</p>
       </footer>
-
-    </div> <!-- /container -->
-  
-
-</body>
+    </main>
+  </body>
 </html>
