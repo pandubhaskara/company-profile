@@ -24,15 +24,15 @@
         background:
           radial-gradient(
             circle at top left,
-            rgba(59, 130, 246, 0.18),
-            transparent 32%
+            rgba(99, 102, 241, 0.16),
+            transparent 24%
           ),
           radial-gradient(
             circle at bottom right,
-            rgba(168, 85, 247, 0.16),
-            transparent 28%
+            rgba(168, 85, 247, 0.14),
+            transparent 24%
           ),
-          #f4f7fb;
+          linear-gradient(180deg, #eff3ff 0%, #f7f8fc 45%, #fefcff 100%);
         color: #0f172a;
       }
 
@@ -45,6 +45,7 @@
         min-height: 100vh;
         line-height: 1.6;
         background-attachment: fixed;
+        background-repeat: no-repeat;
       }
 
       .page {
@@ -103,56 +104,91 @@
         margin-top: 28px;
         padding: 14px 24px;
         color: #ffffff;
-        background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+        background: #7c3aed;
         border-radius: 999px;
         text-decoration: none;
         font-weight: 700;
-        box-shadow: 0 18px 40px rgba(59, 130, 246, 0.18);
+        box-shadow: 0 14px 30px rgba(124, 58, 237, 0.18);
       }
 
       .cta-button:hover {
         transform: translateY(-1px);
       }
 
+      .contact-group {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .contact-icon {
+        width: 44px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #7c3aed;
+        color: #ffffff;
+        text-decoration: none;
+        box-shadow: 0 10px 22px rgba(124, 58, 237, 0.14);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .contact-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .contact-icon:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 24px rgba(124, 58, 237, 0.16);
+      }
+
       .hero {
         position: relative;
         overflow: hidden;
-        background: rgba(255, 255, 255, 0.86);
-        border-radius: 32px;
-        border: 1px solid rgba(148, 163, 184, 0.2);
-        padding: 48px 40px;
-        box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+        background: rgba(255, 255, 255, 0.62);
+        border-radius: 36px;
+        border: 1px solid rgba(255, 255, 255, 0.68);
+        padding: 52px 42px;
+        box-shadow: 0 32px 80px rgba(15, 23, 42, 0.08);
+        backdrop-filter: blur(18px);
       }
 
       .hero::before {
         content: "";
         position: absolute;
-        width: 180px;
-        height: 180px;
+        width: 190px;
+        height: 190px;
         border-radius: 50%;
         background: radial-gradient(
           circle,
-          rgba(59, 130, 246, 0.24),
-          transparent 60%
+          rgba(59, 130, 246, 0.22),
+          transparent 62%
         );
-        top: -40px;
-        right: -40px;
+        top: -48px;
+        right: -48px;
         pointer-events: none;
       }
 
       .hero::after {
         content: "";
         position: absolute;
-        width: 140px;
-        height: 140px;
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
         background: radial-gradient(
           circle,
-          rgba(168, 85, 247, 0.2),
-          transparent 55%
+          rgba(168, 85, 247, 0.18),
+          transparent 58%
         );
-        bottom: -40px;
-        left: -20px;
+        bottom: -42px;
+        left: -24px;
         pointer-events: none;
       }
 
@@ -179,24 +215,30 @@
       .meta-item {
         padding: 14px 22px;
         border-radius: 999px;
-        background: #eef2ff;
-        color: #312e81;
+        background: rgba(124, 58, 237, 0.08);
+        color: #4c1d95;
         font-size: 0.97rem;
-        border: 1px solid rgba(99, 102, 241, 0.18);
+        border: 1px solid rgba(124, 58, 237, 0.12);
+        backdrop-filter: blur(16px);
       }
 
       .split {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
+        display: flex;
         gap: 28px;
+        align-items: stretch;
+      }
+
+      .split .card {
+        flex: 1;
       }
 
       .card {
-        background: #ffffff;
-        border: 1px solid rgba(148, 163, 184, 0.18);
-        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 28px;
         padding: 32px;
         box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+        backdrop-filter: blur(14px);
       }
 
       .card strong {
@@ -206,14 +248,29 @@
       .card h3 {
         margin-top: 0;
         margin-bottom: 18px;
-        font-size: 1.2rem;
+        font-size: 1.28rem;
+        font-weight: 700;
         color: #111827;
       }
 
       .card p,
       .card li {
-        margin: 0 0 18px;
+        margin: 0 0 20px;
         color: #475569;
+        line-height: 1.58;
+      }
+
+      .card p:last-child,
+      .card li:last-child {
+        margin-bottom: 0;
+      }
+
+      .card p strong {
+        display: block;
+        font-size: 1.06rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 8px;
       }
 
       .card li:last-child,
@@ -240,7 +297,7 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: #8b5cf6;
+        background: #7c3aed;
       }
 
       .contact-list {
@@ -272,7 +329,7 @@
 
       @media (max-width: 860px) {
         .split {
-          grid-template-columns: 1fr;
+          flex-direction: column;
         }
       }
 
@@ -295,6 +352,87 @@
     <main class="page">
       <header>
         <div class="hero">
+          <div class="contact-group">
+            <a
+              class="contact-icon"
+              href="mailto:hello@pandubhaskara.com"
+              aria-label="Email Pandu"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 6.75C3 5.23122 4.23122 4 5.75 4H18.25C19.7688 4 21 5.23122 21 6.75V17.25C21 18.7688 19.7688 20 18.25 20H5.75C4.23122 20 3 18.7688 3 17.25V6.75Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3.75 7.5L12 13.125L20.25 7.5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <a
+              class="contact-icon"
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="View LinkedIn profile"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 7.5H7.5V20H4V7.5Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5.75 4C6.99264 4 8 5.00736 8 6.25C8 7.49264 6.99264 8.5 5.75 8.5C4.50736 8.5 3.5 7.49264 3.5 6.25C3.5 5.00736 4.50736 4 5.75 4Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M11 12.5V20H14.5V14.5C14.5 14.5 14.5 12.5 16.5 12.5C18.5 12.5 18.5 14.5 18.5 14.5V20H22V13.25C22 10 20 8.5 17.5 8.5C15 8.5 14 10 14 10V8H11C11 8 11 12.5 11 12.5Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <a
+              class="contact-icon"
+              href="https://github.com/pandubhaskara"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="View GitHub profile"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 2C7.58172 2 4 5.58172 4 10C4 13.866 6.86599 16.8883 10.629 17.7144C11.1293 17.7724 11.2026 17.4585 11.2026 17.1876C11.2026 16.9517 11.1938 16.2073 11.1895 15.225C8.02101 15.737 7.341 13.9505 7.341 13.9505C6.82893 12.8241 6.08001 12.5486 6.08001 12.5486C5.085 12.0009 6.145 12.0115 6.145 12.0115C7.233 12.0816 7.818 13.1165 7.818 13.1165C8.782 14.7505 10.348 14.3355 11.034 14.0969C11.096 13.3575 11.333 12.8686 11.601 12.5752C8.923 12.2791 6.098 11.3105 6.098 7.725C6.098 6.8425 6.407 6.1225 6.921 5.551C6.837 5.253 6.528 4.335 6.998 3.082C6.998 3.082 7.709 2.7675 11.196 4.36C11.94 4.125 12.74 4.01 13.54 4.005C14.34 4.01 15.14 4.125 15.884 4.36C19.371 2.7675 20.082 3.082 20.082 3.082C20.552 4.335 20.243 5.253 20.159 5.551C20.673 6.1225 20.982 6.8425 20.982 7.725C20.982 11.3145 18.152 12.276 15.468 12.5752C15.823 12.8751 16.132 13.4607 16.132 14.3473C16.132 15.7223 16.118 16.9343 16.118 17.1876C16.118 17.4594 16.192 17.7748 16.699 17.7139C20.462 16.8869 23.328 13.8645 23.328 10C23.328 5.58172 19.7463 2 15.328 2H12Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </div>
           <p class="section-title">Software Engineer</p>
           <h1 class="site-title">Pandu Bhaskara</h1>
           <p class="subtitle">
@@ -329,17 +467,6 @@
             services with clean REST/GraphQL contracts and automated deployment
             pipelines.
           </p>
-          <p>
-            <strong
-              ><a
-                href="https://amerchant.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-                >Amerchant</a
-              ></strong
-            ><br />A polished merchant-facing interface featuring modern design,
-            intuitive checkout flows, and responsive performance across devices.
-          </p>
         </div>
 
         <div class="card">
@@ -361,31 +488,6 @@
           product, design, and operations to ensure each release is dependable,
           maintainable, and user-friendly.
         </p>
-      </section>
-
-      <section class="card">
-        <h3>Contact</h3>
-        <ul class="contact-list">
-          <li>
-            Email:
-            <a href="mailto:hello@pandubhaskara.com">hello@pandubhaskara.com</a>
-          </li>
-          <li>
-            LinkedIn:
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"
-              >linkedin.com/in/pandubhaskara</a
-            >
-          </li>
-          <li>
-            GitHub:
-            <a
-              href="https://github.com/pandubhaskara"
-              target="_blank"
-              rel="noreferrer"
-              >github.com/pandubhaskara</a
-            >
-          </li>
-        </ul>
       </section>
 
       <footer>
